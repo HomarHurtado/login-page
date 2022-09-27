@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- CSS Reset -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+		/>
+
+		<!-- Bootstrap 5 -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+			crossorigin="anonymous"
+		/>
+
+		<!-- jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+		<title>Final Project</title>
+		<style>
+			.modal-dialog {
+				max-width: 40%;
+			}
+			h1 {
+				font-size: 5rem;
+			}
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-light px-2" style="background-color: #e3f2fd">
+			<form class="form-inline">
+				<!-- Button trigger modal (Register) -->
+				<button
+					type="button"
+					class="btn btn-primary"
+					data-bs-toggle="modal"
+					data-bs-target="#register"
+				>
+					Register
+				</button>
+
+				<!-- Button trigger modal (Login) -->
+				<button
+					type="button"
+					class="btn btn-primary"
+					data-bs-toggle="modal"
+					data-bs-target="#login"
+				>
+					Login
+				</button>
+			</form>
+			<span class="navbar-text"> Education System Sample </span>
+		</nav>
+
+		<div class="container-fluid h-custom">
+			<div class="row d-flex justify-content-center align-items-center h-100">
+				<div class="col-md-9 col-lg-6 col-xl-5">
+					<img
+						src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+						class="img-fluid"
+						alt="Sample image"
+					/>
+				</div>
+				<div class="col-md-8 col-lg-6 col-xl-4">
+					<h1>Education<br />System<br />Sample</h1>
+				</div>
+			</div>
+		</div>
+		<!-- Modal (Registration) -->
+		<div
+			class="modal fade"
+			id="register"
+			tabindex="-1"
+			aria-labelledby="exampleModalLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">
+							Registration (Teachers)
+						</h5>
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="modal"
+							aria-label="Close"
+						></button>
+					</div>
+					<div class="modal-body">
+						<form class="row g-3 needs-validation" novalidate>
+							<div class="col-md-4">
+								<label for="student_id" class="form-label">Student ID</label>
+								<input
+									type="text"
+									class="form-control"
+									id="student_id"
+									value=""
+									required
+								/>
+								<div class="invalid-feedback">
+									Please type the student ID number
+								</div>
+							</div>
+							<div class="col-md-4">
+								<label for="fname" class="form-label">First name</label>
+								<input
+									type="text"
+									class="form-control"
+									id="fname"
+									value=""
+									required
+								/>
+								<div class="invalid-feedback">
+									Provide the student's first name
+								</div>
+							</div>
+							<div class="col-md-4">
+								<label for="lname" class="form-label">Last name</label>
+								<input
+									type="text"
+									class="form-control"
+									id="lname"
+									value=""
+									required
+								/>
+								<div class="invalid-feedback">
+									Provide the student's last name
+								</div>
+							</div>
+							<div class="col-md-6">
+								<label for="email" class="form-label">E-mail</label>
+								<div class="input-group has-validation">
+									<span class="input-group-text" id="inputGroupPrepend">@</span>
+									<input
+										type="email"
+										class="form-control"
+										id="email"
+										aria-describedby="inputGroupPrepend"
+										required
+									/>
+									<div class="invalid-feedback">Please type a valid email</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<label for="password" class="form-label">Password</label>
+								<div class="input-group has-validation">
+									<input
+										type="password"
+										class="form-control"
+										id="password"
+										aria-describedby="inputGroupPrepend"
+										required
+									/>
+									<div class="invalid-feedback">Please type a password</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div id="radioButtons">
+									<label for="radioButtons" class="form-label">Pathways</label>
+									<div class="form-check">
+										<input
+											class="form-check-input"
+											type="radio"
+											id="validationFormCheck1"
+											value="English"
+											name="radio-stacked"
+											required
+										/>
+										<label class="form-check-label" for="validationFormCheck1">
+											English Courses
+										</label>
+									</div>
+									<div class="form-check">
+										<input
+											class="form-check-input"
+											type="radio"
+											id="validationFormCheck2"
+											value="Careers"
+											name="radio-stacked"
+											required
+										/>
+										<label class="form-check-label" for="validationFormCheck2">
+											Careers Courses
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<label for="course" class="form-label">Courses</label>
+								<select class="form-select" id="course" required></select>
+								<div class="invalid-feedback">Please select a valid course</div>
+							</div>
+							<div class="col-md-4">
+								<label for="course_gpa" class="form-label">Course GPA</label>
+								<input
+									type="text"
+									class="form-control"
+									id="course_gpa"
+									value=""
+									required
+								/>
+								<div class="invalid-feedback">Please assign a GPA</div>
+							</div>
+							<div class="col-12">
+								<button class="btn btn-primary" type="button" id="submitbtn">
+									Submit
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal (Login) -->
+		<div
+			class="modal fade"
+			id="login"
+			tabindex="-1"
+			aria-labelledby="exampleModalLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Login (Students)</h5>
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="modal"
+							aria-label="Close"
+						></button>
+					</div>
+					<div class="modal-body">
+						<form class="row g-3 needs-validation" novalidate>
+							<div class="col-md-12">
+								<label for="student_id" class="form-label">Student ID</label>
+								<input
+									type="text"
+									class="form-control"
+									id="student_id2"
+									value=""
+									required
+								/>
+								<div class="invalid-feedback">
+									Please type the student ID number
+								</div>
+							</div>
+							<div class="col-md-12">
+								<label for="password2" class="form-label">Password</label>
+								<div class="input-group has-validation">
+									<input
+										type="password"
+										class="form-control"
+										id="password2"
+										aria-describedby="inputGroupPrepend"
+										required
+									/>
+									<div class="invalid-feedback">Please type a password</div>
+								</div>
+							</div>
+							<div class="col-12">
+								<button
+									class="btn btn-primary"
+									type="button"
+									disabled="disabled"
+									id="loginbtn"
+								>
+									Login
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"
+	></script>
+	<script>
+		// Courses Objects
+		let englishCourses = {
+			ESL: {
+				1: "ESL Reading & Writing",
+				2: "ESL Listening & Speaking",
+				3: "ESL Experiential Learning",
+			},
+			TOEFL: { 1: "Listening", 2: "Reading", 3: "Writing", 4: "Speaking" },
+			IELTS: {
+				1: "TTSP Reading and Listening",
+				2: "TTSP Speaking",
+				3: "TTSP Writing",
+			},
+		};
+
+		let careersCourses = {
+			"Web Development / WD": {
+				1: "Fundamentals of Front End Web Development and HTML",
+				2: "Fundamentals of CSS, Preprocessors, Frameworks, & Version Control Systems",
+				3: "JavaScript for Web Developers 1",
+				4: "JavaScript for Web Developers 2",
+				5: "Introduction to Back-End Web Development: PHP",
+				6: "Introduction to Content Management Systems with WordPress",
+			},
+			"User Interface / UI": {
+				1: "Fundamentals of Web Development",
+				2: "Introduction to UI Design",
+				3: "Visual Design for UI",
+				4: "Design Tools for UI",
+				5: "Digital Marketing for UI",
+				6: "Career Preparation for UI",
+			},
+			"User Experience / UX": {
+				1: "Fundamentals of UX",
+				2: "Fundamentals for UX Design",
+				3: "Visual Design for UX",
+				4: "Design Tools for UX",
+				5: "Introduction to Quality Assurance for UX",
+				6: "Preparing UX Professionals for the Workplace",
+			},
+			"Hospitality Management / HM": {
+				1: "Cross Cultural Communication",
+				2: "Customer Service, Sales and Marketing",
+				3: "Professional Development in Tourism & Hospitality",
+				4: "Project Management",
+				5: "Sustainable Tourism",
+				6: "Business Ethics",
+			},
+			"Digital Marketing / DM": {
+				1: "Introduction to Marketing",
+				2: "Digital Marketing Fundamentals",
+				3: "Marketing Channels—Paid Channels",
+				4: "Strategic Web Design",
+				5: "Marketing Technology & Automation",
+				6: "Marketing Channels—Content is King",
+			},
+		};
+
+		// Radio Buttons Function
+		let radioBtns = document.querySelectorAll("input[type=radio]");
+
+		// Function that will populate the select
+		let populateSelect = (id, values) => {
+			let $select = $(id);
+			$select.empty();
+			values.forEach(function (value) {
+				let $option = $("<option value='" + value + "'>" + value + "</option>");
+				$select.append($option);
+			});
+		};
+
+		for (let i = 0; i < radioBtns.length; i++) {
+			radioBtns[i].addEventListener("click", (event) => {
+				switch (event.target.value) {
+					case "English":
+						populateSelect("#course", Object.keys(englishCourses));
+						break;
+					case "Careers":
+						populateSelect("#course", Object.keys(careersCourses));
+						break;
+				}
+			});
+		}
+
+		// -- ---------------------------------------------------------------
+		// --  CLASSES
+		// -- ---------------------------------------------------------------
+
+		// Parent Class
+		class Student {
+			constructor(
+				studentId,
+				firstName,
+				lastName,
+				email,
+				password,
+				pathway,
+				courses,
+				gpa
+			) {
+				this.studentId = studentId;
+				this.firstName = firstName;
+				this.lastName = lastName;
+				this.email = email;
+				this.password = password;
+				this.pathway = pathway;
+				this.courses = courses;
+				this.gpa = gpa;
+			}
+			get StudentId() {
+				return this.studentId;
+			}
+			set StudentId(newStudentId) {
+				this.studentId = newStudentId;
+			}
+			get FirstName() {
+				return this.firstName;
+			}
+			set FirstName(newFirstName) {
+				this.firstName = newFirstName;
+			}
+			get LastName() {
+				return this.lastName;
+			}
+			set LastName(newLastName) {
+				this.lastName = newLastName;
+			}
+			get Email() {
+				return this.email;
+			}
+			set Email(newEmail) {
+				this.email = newEmail;
+			}
+			get Password() {
+				return this.email;
+			}
+			set Password(newPassword) {
+				this.password = newPassword;
+			}
+			get Pathway() {
+				return this.pathway;
+			}
+			set Pathway(newPathway) {
+				this.email = newPathway;
+			}
+			get Courses() {
+				return this.courses;
+			}
+			set Courses(newCourses) {
+				this.courses = newCourses;
+			}
+			get GPA() {
+				return this.gpa;
+			}
+			set GPA(newGPA) {
+				this.gpa = newGPA;
+			}
+		}
+
+		// Child Classes
+		class ESL_Student extends Student {
+			constructor(
+				studentId,
+				firstName,
+				lastName,
+				email,
+				password,
+				pathway,
+				courses,
+				activeCourse,
+				gpa
+			) {
+				super(
+					studentId,
+					firstName,
+					lastName,
+					email,
+					password,
+					pathway,
+					courses,
+					gpa
+				);
+				this.activeCourse = activeCourse;
+			}
+			get ActiveCourse() {
+				return this.activeCourse;
+			}
+			set ActiveCourse(newActiveCourse) {
+				this.activeCourse = newActiveCourse;
+			}
+			Student_Info = () => {
+				return (
+					"Name: " +
+					this.FirstName +
+					" " +
+					this.LastName +
+					"\nActive Course: " +
+					this.ActiveCourse +
+					"\nGPA: " +
+					this.GPA
+				);
+			};
+		}
+
+		class Careers_Student extends Student {
+			constructor(
+				studentId,
+				firstName,
+				lastName,
+				email,
+				password,
+				pathway,
+				courses,
+				activeCourse,
+				gpa
+			) {
+				super(
+					studentId,
+					firstName,
+					lastName,
+					email,
+					password,
+					pathway,
+					courses,
+					gpa
+				);
+				this.activeCourse = activeCourse;
+			}
+			get ActiveCourse() {
+				return this.activeCourse;
+			}
+			set ActiveCourse(newActiveCourse) {
+				this.activeCourse = newActiveCourse;
+			}
+			Student_Info() {
+				return (
+					"Name: " +
+					this.FirstName +
+					" " +
+					this.LastName +
+					"\nActive Course: " +
+					this.ActiveCourse +
+					"\nGPA: " +
+					this.GPA
+				);
+			}
+		}
+
+		// -- ---------------------------------------------------------------
+		// --  VALIDATION AND SUBMIT (REGISTRATION & LOGIN)
+		// -- ---------------------------------------------------------------
+
+		// Map object
+		let studentsMap = new Map();
+
+		// Fetch all the forms with custom Bootstrap validation styles
+		let forms = $(".needs-validation");
+
+		// Fields validation
+		(function () {
+			// Loop over them and prevent submission if any field is not filled correctly
+			Array.prototype.slice.call(forms).forEach(function (form) {
+				form.addEventListener(
+					"change",
+					function (event) {
+						if (!form.checkValidity()) {
+							event.preventDefault();
+						}
+						form.classList.add("was-validated");
+					},
+					false
+				);
+			});
+		})();
+
+		// -------------------- REGISTRATION ---------------------- //
+
+		// Keypress restrictions
+
+		// Student ID
+		$("#student_id").keypress((event) => {
+			if (!(event.keyCode >= 48 && event.keyCode <= 57)) {
+				event.preventDefault();
+			}
+		});
+
+		// First and Last names
+		$("#fname").keypress((event) => {
+			if (
+				!(
+					(event.keyCode >= 65 && event.keyCode <= 90) ||
+					(event.keyCode >= 97 && event.keyCode <= 122)
+				)
+			) {
+				event.preventDefault();
+			}
+		});
+
+		$("#lname").keypress((event) => {
+			if (
+				!(
+					(event.keyCode >= 65 && event.keyCode <= 90) ||
+					(event.keyCode >= 97 && event.keyCode <= 122)
+				)
+			) {
+				event.preventDefault();
+			}
+		});
+
+		// Student GPA
+		$("#course_gpa").keypress((event) => {
+			if (
+				!((event.keyCode >= 48 && event.keyCode <= 57) || event.keyCode == 46)
+			) {
+				event.preventDefault();
+			}
+		});
+
+		// Submit button (disable or enable)
+		$(function () {
+			$("#submitbtn").attr("disabled", true);
+			$("form").change(function () {
+				if (
+					$("#student_id").val() != "" &&
+					$("#fname").val() != "" &&
+					$("#lname").val() != "" &&
+					$("#email").val() != "" &&
+					$("#password").val() != "" &&
+					$("input[type='radio']").val() != "" &&
+					$("#course").val() != "" &&
+					$("#course_gpa").val() != ""
+				) {
+					$("#submitbtn").attr("disabled", false);
+				} else {
+					$("#submitbtn").attr("disabled", true);
+				}
+			});
+		});
+
+		// Click event for the 'Submit' button
+		$("#submitbtn").click(() => {
+			let stu_id = $("#student_id").val();
+			let first_name = $("#fname").val();
+			let last_name = $("#lname").val();
+			let email_field = $("#email").val();
+			let pass_field = $("#password").val();
+			let radioValue = $("input[type='radio']:checked").val();
+			let course_field = $("#course").val();
+			let active_gpa = $("#course_gpa");
+
+			if (radioValue == "English") {
+				single_student = new ESL_Student(
+					stu_id,
+					first_name,
+					last_name,
+					email_field,
+					pass_field,
+					radioValue,
+					englishCourses,
+					course_field,
+					active_gpa
+				);
+			} else if (radioValue == "Careers") {
+				single_student = new Careers_Student(
+					stu_id,
+					first_name,
+					last_name,
+					email_field,
+					pass_field,
+					radioValue,
+					careersCourses,
+					course_field,
+					active_gpa
+				);
+			}
+			studentsMap.set(stu_id, single_student);
+			console.log(studentsMap);
+			alert("Student has been registered!");
+			$("form").each(function () {
+				this.reset();
+			});
+			$("#submitbtn").attr("disabled", true);
+			$("form").removeClass("was-validated");
+		});
+
+		// -------------------- LOGIN ---------------------- //
+
+		// Student ID (Keypress restriction)
+		$("#student_id2").keypress((event) => {
+			if (!(event.keyCode >= 48 && event.keyCode <= 57)) {
+				event.preventDefault();
+			}
+		});
+
+		// Login button (disable or enable)
+		$(function () {
+			$("#loginbtn").attr("disabled", true);
+			$("form").change(function () {
+				if ($("#student_id2").val() != "" && $("#password2").val() != "") {
+					$("#loginbtn").attr("disabled", false);
+				} else {
+					$("#loginbtn").attr("disabled", true);
+				}
+			});
+		});
+
+		let Show_Info = (id) => {
+			let findStudent = studentsMap.get(id);
+			findStudent.Student_Info();
+		};
+
+		$("#loginbtn").click(() => {
+			let stu_id2 = $("#student_id2").val();
+			alert(Show_Info(parseInt(stu_id2)));
+		});
+	</script>
+</html>
